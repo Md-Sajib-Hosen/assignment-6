@@ -22,7 +22,7 @@ const showImages = (images) => {
                         <div></div>
                         <div></div>
                       </div>`;
-  setTimeout(()=>{
+  setTimeout(() => {
     gallery.innerHTML = '';
     // show gallery title
     galleryHeader.style.display = 'flex';
@@ -32,7 +32,7 @@ const showImages = (images) => {
       div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
       gallery.appendChild(div)
     })
-  },500)
+  }, 500)
 
 }
 
@@ -44,7 +44,7 @@ const getImages = (query) => {
     .catch(err => console.log(err))
 }
 
-searchVal.addEventListener('keypress',function(e){
+searchVal.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
     document.querySelector('.main').style.display = 'none';
     clearInterval(timer);
@@ -59,7 +59,7 @@ let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
   element.classList.toggle('added');
- 
+
   if (img) {
     sliders.push(img);
   }
